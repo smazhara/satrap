@@ -1,12 +1,17 @@
 module Satrap
   module Request
-    class Passport
-      def initialize(signer, opts = {})
-        @opts = opts
-        @signer = signer
+    class Passport < Base
+      def uri
+        URI.parse('https://passport.webmoney.ru/asp/XMLGetWMPassport.asp')
       end
 
-      def xml
+      def response_class
+        Response::Passport
+      end
+
+      private
+
+      def builder
         Nokogiri::XML::Builder.new do |x|
           x.request do
             x.wmid signer.wmid
@@ -21,10 +26,8 @@ module Satrap
         end
       end
 
-      private
-
       def signature
-        sign(signer.wmid + opts[:wmid]) if opt[:mode] == 1
+        sign(signer.wmid + opts[:wmid]) if opts[:mode] == 1
       end
     end
   end

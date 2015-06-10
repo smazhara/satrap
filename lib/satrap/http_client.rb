@@ -1,19 +1,19 @@
 module Satrap
   class HttpClient
-    attr_reader :interface, :opts
-
-    def initialize(request)
-      @request = request
+    def self.make(request)
+      new(request).response
     end
 
-    def self.run(request)
-      new(request).run
+    def response
+      request.response_class.new(http_response.body)
     end
 
     private
 
-    def response
-      request.response_class.new(http_response)
+    attr_reader :request
+
+    def initialize(request)
+      @request = request
     end
 
     def http_response
@@ -27,12 +27,12 @@ module Satrap
     end
 
     def http
-      Net::HTTP.new(uri.host, uri.port) do |http|
-        http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-        http.ca_file = ca_file
-        http.use_ssl = true
-        http.ssl_version = :TLSv1
-      end
+      http = Net::HTTP.new(request.uri.host, request.uri.port)
+      http.verify_mode = OpenSSL::SSL::VERIFY_PEER
+      http.ca_file = ca_file
+      http.use_ssl = true
+      http.ssl_version = :TLSv1
+      http
     end
 
     def ca_file

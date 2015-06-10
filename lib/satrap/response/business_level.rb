@@ -1,12 +1,9 @@
 module Satrap
   module Response
-    class BusinessLevel
-      include Response::Utils
-
+    class BusinessLevel < Base
       def value
         xml.at('//level').inner_html.to_i
       end
     end
   end
 end
-

@@ -1,17 +1,20 @@
 require 'spec_helper'
 
 describe Satrap::Response::BusinessLevel do
-  let(:business_level) { describe_class.new(http_response) }
+  let(:business_level) { described_class.new(raw) }
 
-  let :http_response do
-    double :http_response,
-      body: response_body
-  end
-
-  let :response_body do
+  let :raw do
+    <<-XML.strip_heredoc
+      <?xml version="1.0"?>
+      <WMIDLevel.response>
+        <level>70</level>
+        <retval>0</retval>
+      </WMIDLevel.response>
+    XML
   end
 
   describe '#value' do
     subject { business_level.value }
+    it { should eq 70 }
   end
 end

@@ -1,15 +1,6 @@
 module Satrap
   module Request
-    class BusinessLevel
-      def initialize(signer, opts)
-        @signer = signer
-        @opts = opts
-      end
-
-      def xml
-        builder.to_xml
-      end
-
+    class BusinessLevel < Base
       def uri
         URI.parse('https://stats.wmtransfer.com/levels/XMLWMIDLevel.aspx')
       end

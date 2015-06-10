@@ -1,12 +1,15 @@
 require 'spec_helper'
 
 describe Satrap::HttpClient do
-  let(:client) { described_class.new(request) }
+  describe '.make' do
+    subject { described_class.make(request) }
 
-  let :signer do
-    Satrap::Signer.new(ENV['WMID'], ENV['WMID_PASSWORD'], ENV['WMID_KEY'])
-  end
+    let :request do
+      Satrap::Request::Passport.new(signer, wmid: signer.wmid)
+    end
 
-  it do
+    it do
+      subject
+    end
   end
 end
