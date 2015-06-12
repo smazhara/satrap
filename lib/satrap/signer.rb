@@ -79,7 +79,9 @@ module Satrap
       end
     end
 
-    def initialize(wmid, password, key)
+    def initialize(wmid = ENV['WMID'],
+                   password = ENV['WMID_PASSWORD'],
+                   key = ENV['WMID_KEY'])
       raise ArgumentError, "nil wmid" if wmid.nil?
       raise ArgumentError, "Incorrect WMID" unless is_wmid wmid
       raise ArgumentError, "nil password" if password.nil?

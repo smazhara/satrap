@@ -1,8 +1,6 @@
 module Satrap
   module Response
     class Operation < Base
-      include Satrap::Decorator::Operation
-
       def id
         @id ||= root['id'].to_i
       end
@@ -66,6 +64,19 @@ module Satrap
       def rest
         @rest ||= BigDecimal.new(root.at('rest').text)
       end
+      alias_method :balance, :rest
+
+      module Decorator
+        def complete?
+          opertype == 0
+        end
+
+        def wminvid?
+          wminvid > 0
+        end
+      end
+
+      include Decorator
 
       private
 

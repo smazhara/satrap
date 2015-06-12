@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Response::Trust do
-  subject { Response::Trust.new(raw) }
+  let(:model) { Response::Trust.new(raw) }
 
   let :raw do
     <<-XML
@@ -23,14 +23,20 @@ describe Response::Trust do
     XML
   end
 
-  its(:id) { should eq 3809 }
-  its(:inv) { should eq 0 }
-  its(:trans) { should eq 0 }
-  its(:balance) { should eq 1 }
-  its(:transhist) { should eq 0 }
-  its(:msg_hist) { should eq 0 }
+  describe Response::Trust::Standard do
+    subject { model }
 
-  its(:purse) { should eq 'C444444444444' }
-  its(:daylimit) { should eq BigDecimal.new('12.34') }
+    its(:id) { should eq 3809 }
+    its(:inv) { should eq 0 }
+    its(:trans) { should eq 0 }
+    its(:balance) { should eq 1 }
+    its(:transhist) { should eq 0 }
+    its(:msg_hist) { should eq 0 }
 
+    its(:purse) { should eq 'C444444444444' }
+    its(:daylimit) { should eq BigDecimal.new('12.34') }
+  end
+
+  describe "#balance?" do
+  end
 end

@@ -9,10 +9,6 @@ module Satrap
         end
       end
 
-      def reqn
-        @reqn ||= root.at('reqn').text.to_i
-      end
-
       def purse
         @purse ||= root.at('purse')
       end

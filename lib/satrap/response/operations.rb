@@ -9,7 +9,7 @@ module Satrap
         end
       end
 
-#      private
+      private
 
       def operations
         xml.search('//operations/operation')
