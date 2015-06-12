@@ -20,12 +20,18 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'rspec'
 require 'rspec/its'
 require 'satrap'
+require 'timecop'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
+include Satrap
+
 RSpec.configure do |config|
+  config.expect_with(:rspec) do |c|
+    c.syntax = [:should, :expect]
+  end
 
   config.include Satrap::SharedContexts
 end

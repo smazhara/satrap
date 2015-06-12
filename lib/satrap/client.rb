@@ -17,9 +17,8 @@ module Satrap
     private
 
     def signer
-      Signer.new(@wmid, @password, @key)
+      @signer ||= Signer.new(@wmid, @password, @key)
     end
-    memoize :signer
 
     def request(iface, opts = {})
       opts[:wmid] ||= wmid

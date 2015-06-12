@@ -1,8 +1,6 @@
 module Satrap
   module Request
     class Base
-      extend Memoist
-
       attr_reader :signer, :opts
 
       def initialize(signer, opts = {})
@@ -17,9 +15,16 @@ module Satrap
       private
 
       def reqn
-        (Time.now.utc.to_f * 1000).floor.to_s
+        @reqn ||= (Time.now.utc.to_f * 1000).floor.to_s
       end
-      memoize :reqn
+
+      def wmtime(time)
+        time.strftime('%Y%m%d %T')
+      end
+
+      def signature
+        signer.sign(signed_string)
+      end
     end
   end
 end

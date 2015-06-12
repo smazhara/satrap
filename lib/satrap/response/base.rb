@@ -1,8 +1,6 @@
 module Satrap
   module Response
     class Base
-      extend Memoist
-
       attr_reader :raw
 
       def initialize(raw)
@@ -10,9 +8,16 @@ module Satrap
       end
 
       def xml
-        Nokogiri::XML(raw)
+        @xml ||= Nokogiri::XML(raw)
       end
-      memoize :xml
+
+      def ==(other)
+        self.to_s == other.to_s
+      end
+
+      def wmtime(string)
+        ActiveSupport::TimeZone.new('Moscow').parse(string).utc
+      end
     end
   end
 end

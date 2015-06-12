@@ -8,8 +8,6 @@ module Satrap
       http_response.is_a?(Net::HTTPSuccess)
     end
 
-    def er
-
     private
 
     attr_reader :http_response

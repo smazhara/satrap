@@ -26,8 +26,8 @@ module Satrap
         end
       end
 
-      def signature
-        sign(signer.wmid + opts[:wmid]) if opts[:mode] == 1
+      def signed_string
+        signer.wmid + opts[:wmid]
       end
     end
   end

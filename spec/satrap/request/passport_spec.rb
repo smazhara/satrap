@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Satrap::Request::Passport do
+describe Request::Passport do
   let(:request) { described_class.new(signer, opts) }
 
   let :signer do
@@ -12,6 +12,13 @@ describe Satrap::Request::Passport do
     {
       wmid: '222222222222'
     }
+  end
+
+  before do
+    allow(signer).to receive(:sign)
+      .with('111111111111222222222222') do
+        'SIGNATURE'
+      end
   end
 
   describe '#xml' do
@@ -28,7 +35,7 @@ describe Satrap::Request::Passport do
             <info>1</info>
             <mode>0</mode>
           </params>
-          <sign/>
+          <sign>SIGNATURE</sign>
         </request>
       XML
     end
