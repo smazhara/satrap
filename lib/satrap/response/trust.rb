@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   module Response
     class Trust < Base

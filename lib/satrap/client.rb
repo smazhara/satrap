@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   class Client
     attr_reader :wmid

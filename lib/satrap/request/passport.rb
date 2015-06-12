@@ -1,14 +1,7 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   module Request
     class Passport < Base
-      def uri
-        URI.parse('https://passport.webmoney.ru/asp/XMLGetWMPassport.asp')
-      end
-
-      def response_class
-        Response::Passport
-      end
-
       private
 
       def builder

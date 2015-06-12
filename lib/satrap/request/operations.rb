@@ -1,10 +1,7 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   module Request
     class Operations < Base
-      def uri
-        URI.parse('https://w3s.wmtransfer.com/asp/XMLOperations.asp')
-      end
-
       private
 
       def builder

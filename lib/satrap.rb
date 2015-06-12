@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'nokogiri'
 require 'bigdecimal'
 require 'active_support/all'

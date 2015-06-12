@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # api = Satrap::Api::BusinessLevel.new(wmid: '111')
 # api.success?
 # api.request # Satrap::Request::BusinessLevel

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   class HttpClient
     def self.call(uri, xml)

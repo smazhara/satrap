@@ -1,11 +1,7 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   module Request
     class Trust < Base
-
-      def uri
-        URI.parse('https://w3s.wmtransfer.com/asp/XMLTrustList2.asp')
-      end
-
       private
 
       def builder

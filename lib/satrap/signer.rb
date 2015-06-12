@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "base64"
 require "stringio"
 require "openssl"

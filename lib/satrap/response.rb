@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Satrap
   class Response
     def initialize(http_response)
