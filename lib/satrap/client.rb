@@ -12,7 +12,7 @@ module Satrap
     end
 
     def business_level(wmid)
-      Request::BusinessLevel.new(signer, wmid: wmid)
+      Api::BusinessLevel.new(signer, wmid: wmid).http_response
     end
 
     private

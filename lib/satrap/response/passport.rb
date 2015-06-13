@@ -2,18 +2,31 @@
 module Satrap
   module Response
     class Passport < Base
-      def full_access?
-        fullaccess.text == '1'
+      module Standard
+        def fullaccess
+          root.at('fullaccess').text
+        end
       end
+
+      module Decorator
+        def fullaccess?
+          fullaccess == '1'
+        end
+
+        def wmids
+          @wmids ||= certinfo.search('wmids/row').map do |xml|
+            Wmid.new(xml)
+          end
+        end
+      end
+
+      include Standard
+      include Decorator
 
       private
 
-      def root
-        xml.at('/response')
-      end
-
-      def fullaccess
-        root.at('fullaccess')
+      def certinfo
+        @certinfo ||= root.at('certinfo')
       end
     end
   end

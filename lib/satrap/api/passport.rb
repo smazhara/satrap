@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module Satrap
   module Api
-    class Passport
+    class Passport < Base
       private
 
       def uri

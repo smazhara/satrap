@@ -5,6 +5,7 @@ require 'active_support/all'
 
 require 'satrap/signer'
 require 'satrap/http_client'
+require 'satrap/client'
 
 require 'satrap/request/base'
 require 'satrap/request/business_level'
@@ -19,9 +20,13 @@ require 'satrap/response/operations'
 require 'satrap/response/operation'
 require 'satrap/response/trusts'
 require 'satrap/response/trust'
+require 'satrap/response/wmid'
 
 require 'satrap/api/base'
 require 'satrap/api/business_level'
+require 'satrap/api/operations'
+require 'satrap/api/passport'
+require 'satrap/api/trust'
 
 module Satrap
 end

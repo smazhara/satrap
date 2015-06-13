@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "satrap"
   gem.homepage = "http://github.com/mazhara/satrap"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Webmoney API}
+  gem.description = %Q{https://wiki.wmtransfer.com/projects/webmoney/wiki/XML-interfaces}
   gem.email = "akmegran@gmail.com"
   gem.authors = ["Stan Mazhara"]
   # dependencies defined in Gemfile

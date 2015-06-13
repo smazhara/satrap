@@ -4,12 +4,15 @@ require 'spec_helper'
 describe Satrap::Response::Passport do
   let(:passport) { described_class.new(raw_response) }
 
+  subject { passport }
+
   let :raw_response do
     ERB.new(File.read('spec/fixtures/passport.xml.erb')).result(binding)
   end
+  let(:response_fullaccess) { '0' }
 
-  describe '#full_access?' do
-    subject { passport.full_access? }
+  describe '#fullaccess?' do
+    subject { passport.fullaccess? }
 
     context 'when /response/fullaccess = 0' do
       let(:response_fullaccess) { '0' }
@@ -21,4 +24,6 @@ describe Satrap::Response::Passport do
       it { should be true }
     end
   end
+
+  its(:wmids) { should have(2).wmid }
 end

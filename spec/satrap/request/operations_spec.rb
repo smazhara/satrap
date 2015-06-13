@@ -10,11 +10,6 @@ describe Request::Operations do
       wmid: '111111111111'
   end
 
-  describe '#uri' do
-    subject { operations.uri }
-    it { should eq URI.parse('https://w3s.wmtransfer.com/asp/XMLOperations.asp') }
-  end
-
   describe '#xml' do
     subject { operations.xml }
 

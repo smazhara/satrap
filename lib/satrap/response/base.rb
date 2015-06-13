@@ -12,6 +12,10 @@ module Satrap
         @xml ||= Nokogiri::XML(raw)
       end
 
+      def root
+        xml.root
+      end
+
       def reqn
         @reqn ||= xml.at('reqn').text.to_i
       end

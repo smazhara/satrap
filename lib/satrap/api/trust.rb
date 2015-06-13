@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module Satrap
   module Api
-    class Trust
+    class Trust < Base
       private
 
       def uri

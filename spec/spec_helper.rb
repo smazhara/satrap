@@ -20,6 +20,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 
 require 'rspec'
 require 'rspec/its'
+require 'rspec/collection_matchers'
 require 'satrap'
 require 'timecop'
 
