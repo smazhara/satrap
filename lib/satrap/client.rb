@@ -12,7 +12,11 @@ module Satrap
     end
 
     def business_level(wmid)
-      Api::BusinessLevel.new(signer, wmid: wmid).http_response
+      Api::BusinessLevel.new(signer, wmid: wmid).response
+    end
+
+    def passport(wmid)
+      Api::Passport.new(signer, wmid: wmid).response
     end
 
     private

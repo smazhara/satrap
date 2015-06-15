@@ -15,7 +15,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://guides.rubygems.org/specification-reference/ for more options
   gem.name = "satrap"
-  gem.homepage = "http://github.com/mazhara/satrap"
+  gem.homepage = "http://github.com/smazhara/satrap"
   gem.license = "MIT"
   gem.summary = %Q{Webmoney API}
   gem.description = %Q{https://wiki.wmtransfer.com/projects/webmoney/wiki/XML-interfaces}
